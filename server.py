@@ -1,3 +1,4 @@
+# (c) 2024 BoraOfficial. All rights reserved.
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import chess
