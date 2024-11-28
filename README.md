@@ -21,3 +21,18 @@ Real-time stockfish chess analyzer browser extension for [chess.com](https://www
   <li><a href="https://stockfishchess.org/download/">Stockfish Binary</a></li>
   <li><a href="https://www.python.org/downloads/">Python +3</a></li>
 </ul>
+
+# How to use
+
+#### 0. Download the code & unzip
+
+#### 1. Install reqired Python modules
+`pip install -r requirements.txt`
+#### 2. Start the server
+`python server.py`
+#### 3. Install the extension
+The installation process can vary a lot depending on the browser. It's a good idea to search online for the latest method.
+
+---
+
+<b>‼️The code and content in this repository are provided "as is" without any warranties or guarantees. Use at your own risk. The author is not liable for any damages arising from the use of this repository.</b>
