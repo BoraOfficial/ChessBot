@@ -1,0 +1,175 @@
+<!-- (c) 2024 BoraOfficial. All rights reserved, except otherwise stated. -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChessBot</title>
+</head>
+<body>
+  <div style="max-width: 100%;max-height:100%;margin-top: 0;">
+    <div style="display: flex; align-items: center;text-align: center;justify-content: center;">
+      <!-- This SVG was taken straight from chess.com. All the copyrights of the file belong to them.
+       It is just used for demonstrative purposes, it will be removed if the extension is officially
+       released. -->
+        <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" baseProfile="tiny-ps" version="1.2" width="32" height="32"><title>Chess.com</title><desc>Chess.com logo</desc><g transform="translate(7.136 -.188)"><clipPath id="a"><path transform="matrix(1 0 0 -1 0 45)" d="M25.773 12.567c-7.338 5.595-6.523 10.45-6.616 12.447h4.474c.523.971.788 1.871.788 2.993l-5.072 3.341a7.011 7.011 0 0 1 2.912 5.691 7.029 7.029 0 0 1-4.393 6.517c-.814.33-6.56-18.542-6.56-18.542a41.217 41.217 0 0 1-.023-1.679c0-1.874 4.607-1.59 4.362-3.247-.368-2.476-.445-4.356-2.577-10.306-1.44-4.015-11.035 0-11.72-1.97C.87 6.44.616 4.901.616 3.245c0-.177.386-2.833 14.617-2.833 14.23 0 14.614 2.656 14.614 2.833 0 4.036-1.507 7.363-4.075 9.321" fill-rule="evenodd"></path></clipPath><g clip-path="url(#a)"><path d="M -4.383 -3.56 L 34.847 -3.56 L 34.847 49.587 L -4.383 49.587 L -4.383 -3.56 Z" fill="#5D9948"></path></g><clipPath id="c"><path transform="matrix(1 0 0 -1 0 45)" d="M14.974 10.057c.79 3.6 1.493 7.437 1.92 9.734.532 2.868-3.821 3.38-5.608 3.644-.082-2.448-.765-6.424-6.593-10.867-1.572-1.2-2.743-2.91-3.418-4.982C2.848 6.819 4.949 6.36 8.184 6.36c2.077 0 5.923-.25 6.79 3.696" fill-rule="evenodd"></path></clipPath><g clip-path="url(#c)"><path d="M -3.725 16.565 L 21.938 16.565 L 21.938 43.643 L -3.725 43.643 L -3.725 16.565 Z" fill="#81B64C"></path></g><clipPath id="e"><path transform="matrix(1 0 0 -1 0 45)" d="M18.03 25.014c.688 1.79.6 2.993.6 2.993l-2.873 3.341c3.054 1.304 4.893 3.755 4.893 6.61a7.013 7.013 0 0 1-2.766 5.59 7.027 7.027 0 0 1-9.679-6.508 7.014 7.014 0 0 1 2.912-5.692l-5.072-3.34c0-1.122.265-2.022.79-2.994H18.03Z" fill-rule="evenodd"></path></clipPath><g clip-path="url(#e)"><path d="M 1.045 -4.066 L 25.65 -4.066 L 25.65 24.986 L 1.045 24.986 L 1.045 -4.066 Z" fill="#81B64C"></path></g><clipPath id="g"><path transform="matrix(1 0 0 -1 0 45)" d="M14.828 42.633c4.053-.629-1.863-5.33-3.73-5.108-1.777.21-.069 5.7 3.73 5.108" fill-rule="evenodd"></path></clipPath><g clip-path="url(#g)"><path d="M 5.393 -2.678 L 21.218 -2.678 L 21.218 12.482 L 5.393 12.482 L 5.393 -2.678 Z" fill="#B2E068"></path></g></g></svg>
+        <h1 class="font-bold" style="font-size: 30px;">ChessBot</h1>
+    </div>
+
+    <p style="font-size: 12px;text-align: center;">Real-time stockfish analyzer for <a href="https://www.chess.com" target="_blank" style="color: #65686d;">chess.com</a></p>
+  
+    <center>
+      <div style="border: 1px solid #00000050;border-radius: 5px;width: 80%;font-size: 12px;">
+      
+        <div style="display: flex; align-items: center;justify-content: center;">
+          <label for="inject" style="display: inline-flex; position: relative; align-items: center; cursor: pointer;margin-top: 6px;margin-right: 18px;">
+            <input type="checkbox" id="inject" class="sr-only">
+            <div class="toggle-bg" style="width: 2.5rem; height: 1.5rem; background-color: #D1D5DB; border-radius: 9999px; box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);">
+            </div>
+            <div class="toggle-dot" style="width: 1rem; height: 1rem; background-color: #FFFFFF; border-radius: 9999px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); position: absolute; left: 0.25rem; transition: transform 0.2s ease-in-out;">
+            </div>
+          </label> <span style="margin-top: 6px;margin-right: 25px;">Engage the engine</span>
+        </div>
+
+        <div style="margin-top: 10px;transform: translateX(-14px);">
+          <input type="range" min="2" max="40" value="20" class="slider-color" id="elo-range">
+          <span id="elo" style="margin-left: 15px;">ELO: 3200</span>
+        </div>
+      </div>
+
+      <button class="btn-chess" id="scan-start" disabled="true" style="margin-top: 1rem;">Scan Board</button>
+      <small style="white-space: nowrap;opacity: .7;font-size: 10px;">Only click "Scan Board" when it is your turn.</small>
+
+    </center>
+  </div>
+
+
+
+  <script src="popup.js"></script>
+  <style>
+    body {
+      user-select: none;
+      background-color: #FFF4E9;
+      width: 225px;
+      height: 200px;
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      line-height: inherit
+    }
+  
+    .btn-chess {
+      background-color: #81b64c;
+      width: 80%;
+      height: 1.75rem;
+      border: none;
+      border-radius: 5px;
+    }
+  
+    .btn-chess:disabled {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+  
+    .btn-chess:not(:disabled):hover {
+      /* Only non-disabled buttons will have hover styles */
+      background-color: #a3d160;
+    }
+  
+  
+    .btn-chess:not(:disabled):active {
+      background-color: #79a848;
+    }
+  
+    .slider-color {
+      -webkit-appearance: none;
+      width: 40%;
+      height: 12px;
+      border-radius: 5px;
+      background: #80b54b;
+      outline: none;
+      -webkit-transition: opacity .15s ease-in-out;
+      transition: opacity .15s ease-in-out;
+    }
+  
+  
+    .slider-color::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+      border: 1.5px solid #80b54b;
+    }
+  
+    .slider-color::-moz-range-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      cursor: pointer;
+      border: 1.5px solid #80b54b;
+    }
+  
+    /* Custom styles to animate the toggle */
+    #inject:checked~.toggle-bg {
+      background-color: #80b54b !important;
+      /* Change color when checked */
+    }
+  
+    #inject:checked~.toggle-dot {
+      transform: translateX(100%);
+      /* Move the dot when checked */
+    }
+  
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0
+    }
+  
+    ::after,
+    ::before {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+      border-color: #e5e7eb
+    }
+  
+    html {
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -moz-tab-size: 4;
+      tab-size: 4;
+      font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      font-feature-settings: normal;
+      font-variation-settings: normal;
+      -webkit-tap-highlight-color: transparent
+    }
+  
+    blockquote,
+    dd,
+    dl,
+    figure,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    pre {
+      margin: 0
+    }
+  </style>
+</body>
+</html>
