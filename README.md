@@ -1,6 +1,9 @@
 # <img src="extension/icon.png" width="28" height="28" /> ChessBot
 Real-time stockfish chess analyzer browser extension for chess.com
 
+![Showcase](https://github.com/user-attachments/assets/003ef739-f8a3-4d54-8969-01cc7404fae7)
+
+
 # Browser Compatability
 
 | Browser        | Supported Version | Notes                                  |
