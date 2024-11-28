@@ -1,5 +1,5 @@
 # <img src="extension/icon.png" width="28" height="28" /> ChessBot
-Real-time stockfish chess analyzer browser extension for chess.com
+Real-time stockfish chess analyzer browser extension for [chess.com](https://www.chess.com)
 
 ![Showcase](https://github.com/user-attachments/assets/003ef739-f8a3-4d54-8969-01cc7404fae7)
 
@@ -13,3 +13,11 @@ Real-time stockfish chess analyzer browser extension for chess.com
 | <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" style="width: 16px; height: 16px;"> Safari         | -               | ❓ Not tested                             |
 | <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" style="width: 16px; height: 16px;"> Edge           | -               | ❓ Not tested                             |
 | <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Opera_2015_icon.svg" style="width: 16px; height: 16px;"> Opera          | -               | ❓ Not tested                             |
+
+
+# Prerequisites
+
+<ul>
+  <li><a href="https://stockfishchess.org/download/">Stockfish Binary</a></li>
+  <li><a href="https://www.python.org/downloads/">Python +3</a></li>
+</ul>
