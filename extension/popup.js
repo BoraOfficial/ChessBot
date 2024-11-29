@@ -1,5 +1,22 @@
 // (c) 2024 BoraOfficial. All rights reserved.
 
+function fadeInAndOut() {
+  const element = document.getElementById('icons8');
+
+  // Fade in the element
+  element.style.opacity = 1;
+
+  // After 8 seconds, fade out the element
+  setTimeout(() => {
+      element.style.opacity = 0;
+  }, 8000);
+}
+
+document.getElementById('green-pawn').addEventListener('click', () => {
+  fadeInAndOut()
+})
+
+
 document.getElementById('inject').addEventListener('change', () => {
   const isChecked = event.target.checked;
 
