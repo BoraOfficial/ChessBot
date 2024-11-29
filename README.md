@@ -17,28 +17,43 @@ Real-time stockfish chess analyzer browser extension for [chess.com](https://www
 
 # Prerequisites
 
+Make sure you have these ready before proceeding with **How to use**
 <ul>
-  <li><a href="https://stockfishchess.org/download/">Stockfish Binary</a></li>
+  <li><a href="https://github.com/official-stockfish/Stockfish/releases/latest/download/stockfish-windows-x86-64-avx2.zip">Stockfish Binary</a></li>
+  The download should start automatically when you click the link. Extract the <b>stockfish-windows-x86-64-avx2.exe</b> in the same folder as the <b>server.py</b>, you can learn about how to download the server.py in the <b>How to use</b> section.
   <li><a href="https://www.python.org/downloads/">Python +3</a></li>
+  Download the latest version, the setup wizard will guide you through the process.
 </ul>
 
 # How to use
 
-#### 0. Download the server.py
-The server.py can easily be <a href="https://github.com/BoraOfficial/ChessBot/raw/refs/heads/main/server.py">downloaded here</a>
-#### 1. Install reqired Python modules
-`pip install -r requirements.txt`
-#### 2. Start the server
-`python server.py`
-#### 3. Install the extension
+#### 0. Make sure you have the prerequisites installed
+
+#### 1. Install the extension
 - **Firefox**  
   Firefox users are in luck! Our extension can be installed from the official [Mozilla Add-Ons site](https://addons.mozilla.org/en-US/firefox/addon/chessbot/).
 
 - **Any other browser**  
   You will have to manually install the addon. First, [download the repository](https://github.com/BoraOfficial/ChessBot/archive/refs/heads/main.zip), then extract the “extension” folder. The installation process after can vary a lot. Here is a general overview of how it can be done on Google Chrome:
   1. Navigate to `chrome://extensions/`
-  2. Click on `Load Unpacked`
-  3. Select the extracted “extension” folder.
+  2. Turn on Developer Mode, by toggling it on the top right of the page.
+  4. After developer mode is turned on, plenty of buttons will appear on the top left, simply click on `Load Unpacked`
+  5. Select the extracted “extension” folder.
+
+
+#### 2. Download the server.py
+Navigate to [server.py](https://github.com/BoraOfficial/ChessBot/blob/main/server.py) then click on the small download icon, as seen in the picture below:
+
+<img width="668" alt="download-button" src="https://github.com/user-attachments/assets/50ef76c2-d7dd-41ba-bffd-afb26b4d0f18">
+
+#### 3. Install reqired Python modules
+Open a Terminal(or Command Prompt) and paste this command:<br>
+`pip install flask==3.1.0 flask-cors==5.0.0 chess==1.11.1`
+#### 4. Start the server
+Double-click on the server.py to start the server. A window will pop up, something like this:
+
+![terminal](https://github.com/user-attachments/assets/6e8ba90b-cf70-4a64-b988-657c22c4c1a6)
+You can simply minimize this window. The extension is ready to use!
 
 
 ---
