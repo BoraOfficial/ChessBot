@@ -24,14 +24,22 @@ Real-time stockfish chess analyzer browser extension for [chess.com](https://www
 
 # How to use
 
-#### 0. Download the code & unzip
-
+#### 0. Download the server.py
+The server.py can easily be <a href="https://github.com/BoraOfficial/ChessBot/raw/refs/heads/main/server.py">downloaded here</a>
 #### 1. Install reqired Python modules
 `pip install -r requirements.txt`
 #### 2. Start the server
 `python server.py`
 #### 3. Install the extension
-The installation process can vary a lot depending on the browser. It's a good idea to search online for the latest method.
+- **Firefox**  
+  Firefox users are in luck! Our extension can be installed from the official [Mozilla Add-Ons site](https://addons.mozilla.org/en-US/firefox/addon/chessbot/).
+
+- **Any other browser**  
+  You will have to manually install the addon. First, [download the repository](https://github.com/BoraOfficial/ChessBot/archive/refs/heads/main.zip), then extract the “extension” folder. The installation process after can vary a lot. Here is a general overview of how it can be done on Google Chrome:
+  1. Navigate to `chrome://extensions/`
+  2. Click on `Load Unpacked`
+  3. Select the extracted “extension” folder.
+
 
 ---
 
