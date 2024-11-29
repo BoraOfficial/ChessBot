@@ -21,7 +21,7 @@ Make sure you have these ready before proceeding with **How to use**
 <ul>
   <li><a href="https://github.com/official-stockfish/Stockfish/releases/latest/download/stockfish-windows-x86-64-avx2.zip">Stockfish Binary</a></li>
   The download should start automatically when you click the link. Extract the <b>stockfish-windows-x86-64-avx2.exe</b> in the same folder as the <b>server.py</b>, you can learn about how to download the server.py in the <b>How to use</b> section.
-  <li><a href="https://www.python.org/downloads/">Python +3</a></li>
+  <li><a href="https://www.python.org/downloads/" target="_blank">Python +3</a></li>
   Download the latest version, the setup wizard will guide you through the process.
 </ul>
 
