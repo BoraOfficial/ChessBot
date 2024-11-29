@@ -55,7 +55,7 @@ Double-click on the server.py to start the server. A window will pop up, somethi
 ![terminal](https://github.com/user-attachments/assets/6e8ba90b-cf70-4a64-b988-657c22c4c1a6)
 You can simply minimize this window. The extension is ready to use! 
 
-**NOTE: You will need to open the server.py file whenever you want to use the extension.**
+**NOTE: You will need to open the server.py file whenever you want to use the extension, if it's not open already.**
 
 ---
 
