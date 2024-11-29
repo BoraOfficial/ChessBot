@@ -48,7 +48,7 @@ Navigate to [server.py](https://github.com/BoraOfficial/ChessBot/blob/main/serve
 
 #### 3. Install reqired Python modules
 Open a Terminal(or Command Prompt) and paste this command:<br>
-`pip install flask==3.1.0 flask-cors==5.0.0 chess==1.11.1`
+`pip install flask==3.0.3 flask-cors==5.0.0 chess==1.11.1`
 #### 4. Start the server
 Double-click on the server.py to start the server. A window will pop up, something like this:
 
