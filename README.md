@@ -27,7 +27,7 @@ Make sure you have these ready before proceeding with **How to use**
 
 # How to use
 
-#### 0. Make sure you have the prerequisites installed
+#### 0. Make sure you have the [prerequisites](https://github.com/BoraOfficial/ChessBot?tab=readme-ov-file#prerequisites) installed
 
 #### 1. Install the extension
 - **Firefox**  
