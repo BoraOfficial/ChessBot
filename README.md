@@ -15,21 +15,8 @@ Real-time stockfish chess analyzer browser extension for [chess.com](https://www
 | <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Opera_2015_icon.svg" style="width: 16px; height: 16px;"> Opera          | -               | ❓ Not tested                             |
 
 
-# Prerequisites
+# How to install?
 
-Make sure you have these ready before proceeding with **How to use**
-<ul>
-  <li><a href="https://github.com/official-stockfish/Stockfish/releases/latest/download/stockfish-windows-x86-64-avx2.zip">Stockfish Binary</a></li>
-  The download should start automatically when you click the link. Extract the <b>stockfish-windows-x86-64-avx2.exe</b> in the same folder as the <b>server.py</b>, you can learn about how to download the server.py in the <b>How to use</b> section.
-  <li><a href="https://www.python.org/downloads/" target="_blank">Python +3</a></li>
-  Download the latest version, the setup wizard will guide you through the process.
-</ul>
-
-# How to use
-
-#### 0. Make sure you have the [prerequisites](https://github.com/BoraOfficial/ChessBot?tab=readme-ov-file#prerequisites) installed
-
-#### 1. Install the extension
 - **Firefox**  
   Firefox users are in luck! Our extension can be installed from the official [Mozilla Add-Ons site](https://addons.mozilla.org/en-US/firefox/addon/chessbot/).
 
@@ -41,21 +28,6 @@ Make sure you have these ready before proceeding with **How to use**
   5. Select the extracted “extension” folder.
 
 
-#### 2. Download the server.py
-Navigate to [server.py](https://github.com/BoraOfficial/ChessBot/blob/main/server.py) then click on the small download icon, as seen in the picture below:
-
-<img width="668" alt="download-button" src="https://github.com/user-attachments/assets/50ef76c2-d7dd-41ba-bffd-afb26b4d0f18">
-
-#### 3. Install reqired Python modules
-Open a Terminal(or Command Prompt) and paste this command:<br>
-`pip install flask==3.0.3 flask-cors==5.0.0 chess==1.11.1`
-#### 4. Start the server
-Double-click on the server.py to start the server. A window will pop up, something like this:
-
-![terminal](https://github.com/user-attachments/assets/6e8ba90b-cf70-4a64-b988-657c22c4c1a6)
-You can simply minimize this window. The extension is ready to use! 
-
-**NOTE: You will need to open the server.py file whenever you want to use the extension, if it's not open already.**
 
 ---
 
