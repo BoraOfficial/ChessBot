@@ -133,31 +133,67 @@ function startEngine() {
         elements.forEach(element => element.remove());
     }
 
+    function reportProgress(depth) {
+        const loaderHTML = `<div style="position:relative;top:15px;" class="tooltip-container" id="progress-stockfish-chessbot"><div class="tooltip-text">Depth <depth>0</depth>/${depth}<br><a style="text-decoration:underline;color:#404040;cursor:pointer" onclick='alert("If your computer is not the best, Stockfish may have difficulties calculating high ELOs. Try refreshing the page and lower the ELO on the extension.")'>Too slow?</a></div><span class="loader"></span><style>.tooltip-text{visibility:hidden;width:120px;background-color:#8c8b8b;color:#4d4d4d;text-align:center;border-radius:5px;padding:5px;position:absolute;z-index:1;top:12.5%;left:10%;margin-top:-16px;opacity:0;transition:opacity .3s}.tooltip-container:hover .tooltip-text{visibility:visible;opacity:1}.loader{border:2px solid #fff;width:32px;height:32px;background:#ff3d00;border-radius:50%;display:inline-block;position:relative;box-sizing:border-box;animation:rotation 2s linear infinite}.loader::after{content:'';box-sizing:border-box;position:absolute;left:50%;top:50%;border:16px solid;border-color:transparent #fff;border-radius:50%;transform:translate(-50%,-50%)}@keyframes rotation{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>`;
+      
+      // Append the HTML code to the body
+      document.getElementById("board-layout-main").insertAdjacentHTML("beforeend",loaderHTML);
 
-    async function postChessApi(data = {}) {
-        const response = await fetch("http://127.0.0.1:3000/analyze/", { 
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data),
-        });
-        return response.json();
+    }
+
+    function reportDepthCycle(depth) {
+        console.log("report depth")
+        document.querySelector('#progress-stockfish-chessbot .tooltip-text depth').innerHTML = depth;
+    }
+
+    
+
+
+    const engine = new Worker("/bundles/app/js/vendor/jschessengine/stockfish.asm.1abfa10c.js")
+    function postChessApi(data) {
+        const progress = document.getElementById("progress-stockfish-chessbot")
+        if (progress === null){
+            reportProgress(data.depth)
+        } else {
+            console.log("Progress element exists.")
+            console.log("Visibility visible")
+            progress.style.visibility = "visible";
+        }
+        console.log(data)
+        engine.postMessage(`position fen ${data.fen}`)
+        engine.postMessage('go wtime 300000 btime 300000 winc 2000 binc 2000');
+        engine.postMessage(`go depth ${data.depth}`)
+
+    }
+
+    engine.onmessage = function (event) {
+        console.log(event.data)
+        try {
+            if (event.data.startsWith('bestmove')) {
+                console.log("Visibility hidden")
+                document.getElementById("progress-stockfish-chessbot").style.visibility = "hidden";
+                const bestMove = event.data.split(' ')[1];
+                if (bestMove === undefined) {
+                    console.log(data);
+                    console.error("Stockfish engine errored out. Callback")
+                    console.log(fenPos)
+                    highlightBestMove(false)
+                }
+                highlightMove(bestMove)
+            } else if (event.data.startsWith('info')) {
+                reportDepthCycle(event.data.match(/depth (\d+)/)[1])
+
+            }
+        } catch (e) {
+            console.error("engine.onmessage error: "+e)
+        }
     }
 
 
     function highlightBestMove(castling = true) {
         try {
             let fenPos = getFEN(castling)
-            postChessApi({ fen: fenPos, depth: window.args.depth}).then((data) => {
-                if (data["move"] === undefined) {
-                    console.log(data);
-                    console.error("Stockfish engine errored out. Callback")
-                    console.log(fenPos)
-                    highlightBestMove(false)
-                }
-                highlightMove(data["move"])
-            });
+            postChessApi({ fen: fenPos, depth: window.args.depth})
         } catch (e) {
             console.log(data);
             console.error("Stockfish engine error", e, ". Callback")
